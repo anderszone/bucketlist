@@ -6,25 +6,27 @@ document.addEventListener("DOMContentLoaded", function () {
     if (displayedUsername) {
         displayedUsername.innerHTML = name;
     }
-    const dreams = [{
-            id: 1,
-            name: "Lära mig HTML/CSS",
-            theme: "teknikdrömmar",
-            checked: true
-        },
-        {
-            id: 2,
-            name: "Lära mig TypeScript",
-            theme: "teknikdrömmar",
-            checked: false
-        },
-        {
-            id: 3,
-            name: "En dröm som tar flera rader lorem ipsum",
-            theme: "vardagsdrömmar",
-            checked: false
-        }
-    ];
+    // const dreams: Dream[] = [{
+    //     id: 1,
+    //     name: "Lära mig HTML/CSS",
+    //     theme: "teknikdrömmar",
+    //     checked: true
+    // },
+    // {
+    //     id: 2,
+    //     name: "Lära mig TypeScript",
+    //     theme: "teknikdrömmar",
+    //     checked: false
+    // },
+    // {
+    //     id: 3,
+    //     name: "En dröm som tar flera rader lorem ipsum",
+    //     theme: "vardagsdrömmar",
+    //     checked: false
+    // }
+    // ]
+    const storedDreams = localStorage.getItem("Dreams");
+    const dreams = storedDreams ? JSON.parse(storedDreams) : [];
     for (let dream of dreams) {
         const li = document.createElement("li");
         li.className = "dream-list_item";
@@ -46,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         li.appendChild(label);
         li.appendChild(button);
         dreamList === null || dreamList === void 0 ? void 0 : dreamList.appendChild(li);
-        console.log("test");
     }
 });
 export {};

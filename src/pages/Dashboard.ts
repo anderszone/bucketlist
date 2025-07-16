@@ -10,25 +10,28 @@ document.addEventListener("DOMContentLoaded", function () {
         displayedUsername.innerHTML = name;
     }
 
-    const dreams: Dream[] = [{
-        id: 1,
-        name: "Lära mig HTML/CSS",
-        theme: "teknikdrömmar",
-        checked: true
-    },
-    {
-        id: 2,
-        name: "Lära mig TypeScript",
-        theme: "teknikdrömmar",
-        checked: false
-    },
-    {
-        id: 3,
-        name: "En dröm som tar flera rader lorem ipsum",
-        theme: "vardagsdrömmar",
-        checked: false
-    }
-    ]
+    // const dreams: Dream[] = [{
+    //     id: 1,
+    //     name: "Lära mig HTML/CSS",
+    //     theme: "teknikdrömmar",
+    //     checked: true
+    // },
+    // {
+    //     id: 2,
+    //     name: "Lära mig TypeScript",
+    //     theme: "teknikdrömmar",
+    //     checked: false
+    // },
+    // {
+    //     id: 3,
+    //     name: "En dröm som tar flera rader lorem ipsum",
+    //     theme: "vardagsdrömmar",
+    //     checked: false
+    // }
+    // ]
+
+    const storedDreams = localStorage.getItem("Dreams");
+    const dreams: Dream[] = storedDreams ? JSON.parse(storedDreams) : [];
 
     for (let dream of dreams) {
         const li = document.createElement("li");
