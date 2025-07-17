@@ -10,25 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
         displayedUsername.innerHTML = name;
     }
 
-    // const dreams: Dream[] = [{
-    //     id: 1,
-    //     name: "Lära mig HTML/CSS",
-    //     theme: "teknikdrömmar",
-    //     checked: true
-    // },
-    // {
-    //     id: 2,
-    //     name: "Lära mig TypeScript",
-    //     theme: "teknikdrömmar",
-    //     checked: false
-    // },
-    // {
-    //     id: 3,
-    //     name: "En dröm som tar flera rader lorem ipsum",
-    //     theme: "vardagsdrömmar",
-    //     checked: false
-    // }
-    // ]
+    function handleDeleteDream(button: HTMLButtonElement, idToRemove: number): void {
+        const li = button.closest("li");
+        li!.remove();
+        const storedDreams = localStorage.getItem("Dreams");
+        const dreams: Dream[] = storedDreams ? JSON.parse(storedDreams) : [];
+        const updatedDreams = dreams.filter(dream => dream.id !== idToRemove);
+        localStorage.setItem("Dreams", JSON.stringify(updatedDreams));
+    }
 
     const storedDreams = localStorage.getItem("Dreams");
     const dreams: Dream[] = storedDreams ? JSON.parse(storedDreams) : [];
@@ -59,5 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         li.appendChild(label);
         li.appendChild(button);
         dreamList?.appendChild(li);
+
+        button.addEventListener("click", () => handleDeleteDream(button, dream.id));
     }
 });
