@@ -14,6 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const updatedDreams = dreams.filter(dream => dream.id !== idToRemove);
         localStorage.setItem("Dreams", JSON.stringify(updatedDreams));
     }
+    function handleToggleDream(idToUpdate, isChecked) {
+        const storedDreams = localStorage.getItem("Dreams");
+        const dreams = storedDreams ? JSON.parse(storedDreams) : [];
+        const updatedDreams = dreams.map(dream => {
+            if (dream.id === idToUpdate) {
+                return Object.assign(Object.assign({}, dream), { checked: isChecked });
+            }
+            return dream;
+        });
+        localStorage.setItem("Dreams", JSON.stringify(updatedDreams));
+    }
     const storedDreams = localStorage.getItem("Dreams");
     const dreams = storedDreams ? JSON.parse(storedDreams) : [];
     for (let dream of dreams) {
@@ -38,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         li.appendChild(button);
         dreamList === null || dreamList === void 0 ? void 0 : dreamList.appendChild(li);
         button.addEventListener("click", () => handleDeleteDream(button, dream.id));
+        input.addEventListener("change", () => handleToggleDream(dream.id, input.checked));
     }
 });
 export {};

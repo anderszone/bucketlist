@@ -19,6 +19,20 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("Dreams", JSON.stringify(updatedDreams));
     }
 
+    function handleToggleDream(idToUpdate: number, isChecked: boolean): void {
+        const storedDreams = localStorage.getItem("Dreams");
+        const dreams: Dream[] = storedDreams ? JSON.parse(storedDreams) : [];
+
+        const updatedDreams = dreams.map(dream => {
+            if (dream.id === idToUpdate) {
+                return { ...dream, checked: isChecked };
+            }
+            return dream;
+        });
+
+        localStorage.setItem("Dreams", JSON.stringify(updatedDreams));
+    }
+
     const storedDreams = localStorage.getItem("Dreams");
     const dreams: Dream[] = storedDreams ? JSON.parse(storedDreams) : [];
 
@@ -50,5 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
         dreamList?.appendChild(li);
 
         button.addEventListener("click", () => handleDeleteDream(button, dream.id));
+        input.addEventListener("change", () => handleToggleDream(dream.id, input.checked));
     }
 });
