@@ -1,5 +1,7 @@
 // här är det bara level-up!
 import { name, themes } from "../utils/variables.js";
+
+// Importerar logOut-funktionen
 import logOut from "../utils/LogOut.js";
 
 const nameInput = document.getElementById("name-input") as HTMLInputElement;
@@ -17,4 +19,3 @@ if (themeList) {
 // "logga ut"
 const logOutBtn = document.querySelector(".logout");
 logOutBtn?.addEventListener("click", logOut);
-

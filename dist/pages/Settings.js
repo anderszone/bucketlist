@@ -1,5 +1,6 @@
 // här är det bara level-up!
 import { name, themes } from "../utils/variables.js";
+// Importerar logOut-funktionen
 import logOut from "../utils/LogOut.js";
 const nameInput = document.getElementById("name-input");
 nameInput.value = name;

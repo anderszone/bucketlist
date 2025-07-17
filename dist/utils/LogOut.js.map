@@ -1,1 +1,1 @@
-{"version":3,"file":"LogOut.js","sourceRoot":"","sources":["../../src/utils/LogOut.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,UAAU,MAAM;IAC1B,MAAM,CAAC,QAAQ,CAAC,OAAO,CAAC,YAAY,CAAC,CAAC;AAC1C,CAAC;AAAA,CAAC"}
+{"version":3,"file":"LogOut.js","sourceRoot":"","sources":["../../src/utils/LogOut.ts"],"names":[],"mappings":"AAAA,uCAAuC;AACvC,MAAM,CAAC,OAAO,UAAU,MAAM;IAC1B,MAAM,CAAC,QAAQ,CAAC,OAAO,CAAC,YAAY,CAAC,CAAC;AAC1C,CAAC;AAAA,CAAC"}
